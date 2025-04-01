@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--==================== CSS ==========-->
+    <link rel="stylesheet" href="Style.css" />
+
+    <title>Clock</title>
+  </head>
+  <body>
+    <div class="clock container">
+      <div class="clock_container grid">
+        <div class="clock_content grid">
+          <div class="clock_circle">
+            <span class="clock_twelve"></span>
+            <span class="clock_three"></span>
+            <span class="clock_six"></span>
+            <span class="clock_nine"></span>
+
+            <div class="clock_rounder"></div>
+            <div class="clock_hour" id="clock_hour"></div>
+            <div class="clock_minutes" id="clock_minutes"></div>
+            <div class="clock_seconds" id="clock_seconds"></div>
+          </div>
+
+          <div>
+            <div class="clock_text">
+              <div class="clock_text-hour" id="text_hour"></div>
+              <div class="clock_text-minutes" id="text_minutes"></div>
+              <div class="clock_text-ampm" id="text_ampm"></div>
+            </div>
+
+            <div class="clock_date">
+              <span id="date_day"></span>
+              <span id="date_month"></span>
+              <span id="date_year"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="Index.js"></script>
+  </body>
+</html>
