@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: hsl(240, 24%, 94%);
+  color: hsl(240, 12%, 35%);
+}
+
+.container {
+  max-width: 968px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.clock_container {
+  height: 100vh;
+  grid-template-rows: 1fr max-content;
+}
+
+.clock_circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  box-shadow: -6px -6px 16px #fff, 6px 6px 16px hsla(240, 30%, 86%, 1),
+    inset 6px 6px 16px hsla(240, 30%, 86%, 1), inset -6px -6px 16px #fff;
+  border-radius: 50%;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock_content {
+  align-self: center;
+  row-gap: 3.5rem;
+}
+
+.clock_twelve,
+.clock_three,
+.clock_six,
+.clock_nine {
+  position: absolute;
+  width: 1rem;
+  height: 1px;
+  background-color: hsl(240, 12%, 65%);
+}
+
+.clock_twelve,
+.clock_six {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.clock_twelve {
+  top: 1.25rem;
+  left: 50%;
+}
+
+.clock_three {
+  top: 50%;
+  right: 0.75rem;
+}
+
+.clock_six {
+  bottom: 1.25rem;
+  left: 50%;
+}
+
+.clock_nine {
+  left: 0.75rem;
+  top: 50%;
+}
+
+.clock_rounder {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: hsl(240, 53%, 49%);
+  border-radius: 50%;
+  border: 2px solid hsl(240, 24%, 94%);
+  z-index: 10;
+}
+
+.clock_hour,
+.clock_minutes,
+.clock_seconds {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.clock_hour {
+  width: 105px;
+  height: 105px;
+}
+
+.clock_hour::before {
+  content: "";
+  position: absolute;
+  background-color: hsl(240, 12%, 35%);
+  width: 0.25rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  z-index: 1;
+}
+
+.clock_minutes {
+  width: 136px;
+  height: 136px;
+}
+
+.clock_minutes::before {
+  content: "";
+  position: absolute;
+  background-color: hsl(240, 12%, 35%);
+  width: 0.25rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  z-index: 1;
+}
+
+.clock_seconds {
+  width: 130px;
+  height: 130px;
+}
+
+.clock_seconds::before {
+  content: "";
+  position: absolute;
+  background-color: hsl(240, 53%, 49%);
+  width: 0.125rem;
+  height: 5rem;
+  border-radius: 0.75rem;
+  z-index: 1;
+}
+
+.clock_logo {
+  width: max-content;
+  justify-self: center;
+  margin-bottom: 2.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: hsl(240, 12%, 65%);
+  transition: 0.3s;
+}
+
+.clock_logo:hover {
+  color: hsl(240, 53%, 49%);
+}
+
+.clock_text {
+  display: flex;
+  justify-content: center;
+}
+
+.clock_text-hour,
+.clock_text-minutes {
+  font-size: 3rem;
+  font-weight: 500;
+  color: hsl(240, 53%, 15%);
+}
+
+.clock_text-ampm {
+  font-size: 0.625rem;
+  color: hsl(240, 53%, 15%);
+  font-weight: 500;
+  margin-left: 0.25rem;
+}
+
+.clock_date {
+  text-align: center;
+  font-size: 0.813rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 968px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
