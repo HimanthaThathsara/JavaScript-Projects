@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .column {
+            width: 30%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            min-height: 200px;
+            float: left;
+        }
+        .column h3 {
+            text-align: center;
+        }
+        .draggable {
+            margin: 0 0 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Drag and Drop Kanban Board</h2>
+
+<input type="text" id="newTaskInput" placeholder="New task...">
+<button onclick="addTask()">Add Task</button>
+
+<div id="todo" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <h3>To Do</h3>
+  <div id="task1" draggable="true" ondragstart="drag(event)" class="draggable">Task 1</div>
+  <div id="task2" draggable="true" ondragstart="drag(event)" class="draggable">Task 2</div>
+</div>
+
+<div id="doing" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <h3>Doing</h3>
+</div>
+
+<div id="done" class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <h3>Done</h3>
+</div>
+
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+function addTask() {
+  var newTaskInput = document.getElementById('newTaskInput');
+  var newTask = document.createElement('div');
+  newTask.id = 'task' + (document.getElementById('todo').children.length + 1);
+  newTask.draggable = true;
+  newTask.ondragstart = drag;
+  newTask.className = 'draggable';
+  newTask.textContent = newTaskInput.value;
+  document.getElementById('todo').appendChild(newTask);
+  newTaskInput.value = '';
+}
+</script>
+
+</body>
+</html>
