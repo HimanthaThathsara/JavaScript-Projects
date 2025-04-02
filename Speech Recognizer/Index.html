@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Recognizer</title>
+</head>
+
+<style>
+
+
+body {
+	background:#2a2a2b;
+	font-family:Arial, Helvetica, sans-serif;
+	display:grid;
+	place-items:center;
+}
+.box {
+	max-width:1000px;
+	background:#2a2a2b;
+	border-radius:10px;
+	display:grid;
+}
+.box h2 {
+	font-size:80px;
+	color:#555;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.box p {
+	width:100%;
+	height:400px;
+    background-color: #2a2a2b;
+    color: #ffffff;
+    font-size:20px;
+    font-family: Arial, Helvetica, sans-serif;
+	border:none;
+	padding:0.8em;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+	width:100px;
+    height: 100px;
+	padding:0.5em;
+	font-size:0.95em;
+	border:none;
+	outline:none;
+	background:#ffffff;
+	color:#020202;
+	border-radius:50%;
+	cursor:pointer;
+}
+.box button img {
+ display: none;
+}
+.box button .mic {
+    display: block;
+}
+.box button.active .mic {
+    display: none;
+}
+.box button.active img {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+}
+</style>
+
+<body>
+    <div class="box">
+        <h2>Text to Speech</h2>
+        <div>
+            <p id="text-data"></p>
+        </div>
+        <div class="button">
+            <button id="speak-btn">
+                <svg class="mic" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 32 32">
+                    <path d="M 13 4 C 11.906937 4 11 4.9069372 11 6 L 11 18 C 11 19.093063 11.906937 20 13 20 L 19 20 C 20.093063 20 21 19.093063 21 18 L 21 6 C 21 4.9069372 20.093063 4 19 4 L 13 4 z M 13 6 L 19 6 L 19 18 L 13 18 L 13 6 z M 7 14 L 7 18 C 7 21.309 9.691 24 13 24 L 15 24 L 15 26 L 11 26 L 11 28 L 21 28 L 21 26 L 17 26 L 17 24 L 19 24 C 22.309 24 25 21.309 25 18 L 25 14 L 23 14 L 23 18 C 23 20.206 21.206 22 19 22 L 17 22 L 13 22 C 10.794 22 9 20.206 9 18 L 9 14 L 7 14 z M 16 14 A 1 1 0 0 0 16 16 A 1 1 0 0 0 16 14 z"></path>
+                </svg>
+                <img src="icons8-audio-wave.gif" alt="">
+            </button>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    
+    //code from mozilla Docs
+    // https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+    const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+    const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
+
+    // getting the elements from the DOM
+    const outputData = document.getElementById('text-data');
+    const speakBtn = document.getElementById('speak-btn');
+
+    // adding the click event to the speak button
+    speakBtn.addEventListener('click', () => {
+        speakBtn.classList.add('active');
+
+        // checking if the browser supports the speech recognition
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        // creating a new instance of the speech recognition
+        const recognition = new window.SpeechRecognition();
+        // setting the language realtime
+        recognition.interimResults = true;
+
+        // starting the speech recognition service calling the start method
+        recognition.start();
+        // adding the result event to the recognition instance and getting the transcript
+        recognition.addEventListener('result', (e) => {
+            const transcript = Array.from(e.results)
+                .map(result => result[0])
+                .map(result => result.transcript)
+                .join('');
+            // setting the transcript to the output data and displaying it
+            outputData.innerHTML = transcript;
+        });
+
+            // adding the double click event to the speak button to close the speech recognition
+                speakBtn.addEventListener('dblclick', () => {
+                speakBtn.classList.remove('active');
+                recognition.stop();
+            });
+    });
+
+
+</script>
+
+</html>
