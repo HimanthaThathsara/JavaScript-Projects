@@ -1,0 +1,10 @@
+/* CSS */
+#sortable-list li {
+  /* Styling for list items */
+}
+
+@media (max-width: 600px) {
+  #sortable-list {
+    /* Responsive styles */
+  }
+}
