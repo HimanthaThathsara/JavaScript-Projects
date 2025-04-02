@@ -1,0 +1,3 @@
+UpDate the "Style.css" file.[Add CSS For The Project]
+Modify the all file name and update the links.
+Explain The Code using COMMENTS specaily JS
