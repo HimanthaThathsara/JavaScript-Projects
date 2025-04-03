@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassWord Generator</title>
+  </head>
+  <style>
+   body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.password-generator-full-box {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.password-generator-full-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.password-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.password-box input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.password-box button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.password-box button:hover {
+    background-color: #0056b3;
+}
+
+.checkbox-box {
+    text-align: left;
+}
+
+.length-box {
+    margin-bottom: 10px;
+}
+
+.length-box label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.length-box input[type="range"] {
+    width: 100%;
+}
+
+.type-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.type-checkbox input {
+    margin-right: 10px;
+}
+
+.button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button button {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button button:hover {
+    background-color: #218838;
+}
+
+  </style>
+
+  <body>
+    <div class="password-generator-full-box">
+      
+      <h2>Password Generator</h2>
+
+      <div class="-passswor-generator-box">
+
+        <div class="password-box">
+          <input type="text" id="password-show-box"  readonly/> 
+          <button id="copy-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"fill="currentColor"class="bi bi-copy"viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="checkbox-box">
+
+          <div class="length-box">
+            <label for="length-input">
+              <span>Password length</span>
+              <span id="length-size">10</span>
+            </label>
+            <input type="range" min="6" max="24" value="10" id="password-length-input-ranger" />
+          </div>
+
+          <div class="type-checkbox">
+            <input type="checkbox" id="uppercase-checkbox" />
+            <label for="uppercase">Includes uppercase</label>
+          </div>
+
+          <div class="type-checkbox">
+            <input type="checkbox" id="lowercase-checkbox" checked />
+            <label for="lowercase">Includes lowercase</label>
+          </div>
+
+          <div class="type-checkbox">
+            <input type="checkbox" id="numbers-checkbox" />
+            <label for="numbers">Includes numbers</label>
+          </div>
+
+          <div class="type-checkbox">
+            <input type="checkbox" id="special-checkbox" />
+            <label for="special">Includes special chara</label>
+          </div>
+
+          <div class="button">
+            <button id="generate-button">Generate password</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+
+  <script src="Index.js"></script>
+  
+</html>
