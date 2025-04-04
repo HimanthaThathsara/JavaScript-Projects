@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">        
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+        <title>Pie Chart Creater</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="jumbotron">
+                
+                <canvas id='canvas' width='600' height='600'>
+                </canvas>
+                
+                <br>
+
+                <div id="INputCollecter1" class="InputClass">
+
+                    <input type="text" placeholder="Expenditure" id="Key1" class="InputForJson"> 
+                    <input type="number" placeholder="Percentage" id="value1" class="InputForJson"> 
+
+                </div>
+                
+                <input type="button" value="+" onclick="AddRow()">
+                <input type="button" value="-" onclick="RemoveRow()" id="RemoveRow"> 
+
+                <br>
+
+                
+                <button type="submit" class="btn-lg mybut" onclick="CreateJson()">Create Pie Chart</button>
+
+            </div>
+        </div>
+        
+        <script src="main.js"></script>
+    </body>
+
+</html>
